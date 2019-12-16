@@ -27,10 +27,9 @@ scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/au
 creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
 client = gspread.authorize(creds)
 
-# Find a workbook by name and open the first sheet
-# Make sure you use the right name here.
+# Find a workbook by name and open sheet by name
 sheet = client.open("hello").worksheet("w15")
 
-# Set sheet1 with scores dataframe
+# Set sheet with scores dataframe
 gdf.set_with_dataframe(sheet, df)
 
